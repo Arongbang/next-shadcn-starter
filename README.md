@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next Shadcn Starter
 
-## Getting Started
+Next.js App Router 기반 스타터킷.
 
-First, run the development server:
+## 스택
+
+- **Next.js 16** — App Router
+- **React 19**
+- **Tailwind CSS v4**
+- **shadcn/ui** — Radix UI 기반 컴포넌트
+- **TanStack Query v5** — 서버 상태 관리
+- **React Hook Form + Zod** — 폼 유효성 검사
+- **next-themes** — 다크모드
+- **date-fns** — 날짜 포맷
+
+## 시작하기
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 명령어
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev      # 개발 서버
+npm run build    # 프로덕션 빌드
+npm run start    # 프로덕션 서버
+npm run lint     # ESLint
+```
 
-## Learn More
+## 구조
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/                  # App Router 페이지
+  _components/        # 라우트 전용 컴포넌트
+components/
+  ui/                 # shadcn/ui 컴포넌트
+  layout/             # Header, Footer, ThemeToggle
+  common/             # PageHeader, EmptyState, LoadingSpinner
+  providers/          # 전역 Provider 래퍼
+lib/                  # 유틸리티 (format, utils, env, query-client)
+types/                # 공용 타입
+constants/            # siteConfig, navItems
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 환경 변수
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+cp .env.example .env.local
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| 변수 | 설명 |
+|------|------|
+| `NEXT_PUBLIC_APP_URL` | 앱 기본 URL |
