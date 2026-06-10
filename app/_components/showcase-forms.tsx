@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/select"
 import { Separator } from "@/components/ui/separator"
 import { useDebounce } from "use-debounce"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import useLocalStorageState from "use-local-storage-state"
 import { useMediaQuery } from "react-responsive"
 
@@ -34,15 +34,20 @@ export function ShowcaseForms() {
   const [searchValue, setSearchValue] = useState("")
   const [debouncedSearch] = useDebounce(searchValue, 400)
   const [savedNote, setSavedNote] = useLocalStorageState("starter-note", { defaultValue: "" })
-  const isMobile = useMediaQuery({ maxWidth: 767 })
+  const [mounted, setMounted] = useState(false)
+  const isMobileRaw = useMediaQuery({ maxWidth: 767 })
+  const isMobile = mounted ? isMobileRaw : false
+
+  // SSR 하이드레이션 불일치 방지: 마운트 후에만 실제 미디어 쿼리 값을 사용
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => { setMounted(true) }, [])
 
   const form = useForm<ContactForm>({
     resolver: zodResolver(contactSchema),
     defaultValues: { name: "", email: "", category: "", message: "" },
   })
 
-  function onSubmit(values: ContactForm) {
-    console.log(values)
+  function onSubmit() {
     toast.success("폼이 성공적으로 제출되었습니다!")
     form.reset()
   }

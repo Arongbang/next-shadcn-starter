@@ -24,8 +24,6 @@ type Post = {
   userId: number
 }
 
-const THREE_MINUTES_AGO = new Date(new Date().getTime() - 180_000)
-
 function PostTableSkeleton() {
   return (
     <Table>
@@ -57,6 +55,7 @@ export function ShowcaseData() {
   })
 
   const now = new Date()
+  const threeMinutesAgo = new Date(now.getTime() - 180_000)
 
   return (
     <div className="space-y-10">
@@ -67,7 +66,7 @@ export function ShowcaseData() {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => refetch()}
+            onClick={refetch}
             disabled={isFetching}
           >
             <RefreshCw className={`mr-2 h-3.5 w-3.5 ${isFetching ? "animate-spin" : ""}`} />
@@ -82,7 +81,7 @@ export function ShowcaseData() {
             icon={<FileX className="h-10 w-10" />}
             title="데이터를 불러오지 못했습니다"
             description="네트워크 연결을 확인하고 다시 시도해 주세요"
-            action={<Button variant="outline" size="sm" onClick={() => refetch()}>재시도</Button>}
+            action={<Button variant="outline" size="sm" onClick={refetch}>재시도</Button>}
           />
         ) : data?.length === 0 ? (
           <EmptyState
@@ -130,7 +129,7 @@ export function ShowcaseData() {
           </div>
           <div className="rounded-lg border bg-muted/30 p-3 space-y-1">
             <p className="text-xs text-muted-foreground font-sans">formatRelativeTime (3분 전)</p>
-            <p className="font-semibold">{formatRelativeTime(THREE_MINUTES_AGO)}</p>
+            <p className="font-semibold">{formatRelativeTime(threeMinutesAgo)}</p>
           </div>
           <div className="rounded-lg border bg-muted/30 p-3 space-y-1">
             <p className="text-xs text-muted-foreground font-sans">formatCompact(1_234_567)</p>

@@ -56,7 +56,7 @@ export function ShowcaseButtons() {
           <Button size="sm"><Plus className="mr-1 h-3 w-3" />Small</Button>
           <Button size="default"><Download className="mr-2 h-4 w-4" />Default</Button>
           <Button size="lg">Large</Button>
-          <Button size="icon"><Bell className="h-4 w-4" /></Button>
+          <Button size="icon" aria-label="알림"><Bell className="h-4 w-4" /></Button>
           <Button disabled><Loader2 className="mr-2 h-4 w-4 animate-spin" />Loading</Button>
         </div>
       </section>
@@ -239,10 +239,10 @@ export function ShowcaseButtons() {
           </div>
           <Progress value={progress} />
           <div className="flex gap-2">
-            <Button size="sm" variant="outline" onClick={() => setProgress(Math.max(0, progress - 10))}>
+            <Button size="sm" variant="outline" onClick={() => setProgress((p) => Math.max(0, p - 10))}>
               -10
             </Button>
-            <Button size="sm" variant="outline" onClick={() => setProgress(Math.min(100, progress + 10))}>
+            <Button size="sm" variant="outline" onClick={() => setProgress((p) => Math.min(100, p + 10))}>
               +10
             </Button>
           </div>
@@ -262,7 +262,7 @@ export function ShowcaseButtons() {
         <div className="flex gap-4">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="outline" size="icon">
+              <Button variant="outline" size="icon" aria-label="알림 설정">
                 <Bell className="h-4 w-4" />
               </Button>
             </TooltipTrigger>
@@ -270,7 +270,7 @@ export function ShowcaseButtons() {
           </Tooltip>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="outline" size="icon">
+              <Button variant="outline" size="icon" aria-label="삭제">
                 <Trash className="h-4 w-4" />
               </Button>
             </TooltipTrigger>
