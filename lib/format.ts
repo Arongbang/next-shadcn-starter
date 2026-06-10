@@ -43,6 +43,11 @@ export function truncate(text: string, maxLength: number): string {
   return `${text.slice(0, maxLength)}...`
 }
 
+/**
+ * 텍스트를 URL 슬러그로 변환합니다.
+ * @note 비ASCII 문자(한국어 등)는 제거됩니다. slugify("안녕") → ""
+ *       다국어 슬러그가 필요하다면 transliteration 라이브러리 사용을 고려하세요.
+ */
 export function slugify(text: string): string {
   return text
     .toLowerCase()

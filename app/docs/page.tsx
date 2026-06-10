@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const techStack = [
   {
-    name: "Next.js 15",
+    name: "Next.js 16",
     description: "App Router, Server Components, Streaming 지원",
     badge: "프레임워크",
   },

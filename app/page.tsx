@@ -15,7 +15,7 @@ export default function HomePage() {
     <div className="container mx-auto max-w-screen-xl px-4 py-10">
       <PageHeader
         title="Next.js Starter Kit"
-        description="Next.js 15 · React 19 · Tailwind v4 · shadcn/ui · TanStack Query · React Hook Form · Zod"
+        description="Next.js 16 · React 19 · Tailwind v4 · shadcn/ui · TanStack Query · React Hook Form · Zod"
         className="mb-10"
       />
 

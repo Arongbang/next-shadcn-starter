@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { PageHeader } from "@/components/common/page-header"
-import { ShowcaseButtons } from "../_components/showcase-buttons"
-import { ShowcaseForms } from "../_components/showcase-forms"
+import { ShowcaseButtons } from "@/app/_components/showcase-buttons"
+import { ShowcaseForms } from "@/app/_components/showcase-forms"
 
 export const metadata: Metadata = {
   title: "컴포넌트",
