@@ -66,7 +66,7 @@ export function ShowcaseData() {
           <Button
             variant="outline"
             size="sm"
-            onClick={refetch}
+            onClick={() => refetch()}
             disabled={isFetching}
           >
             <RefreshCw className={`mr-2 h-3.5 w-3.5 ${isFetching ? "animate-spin" : ""}`} />
@@ -81,7 +81,7 @@ export function ShowcaseData() {
             icon={<FileX className="h-10 w-10" />}
             title="데이터를 불러오지 못했습니다"
             description="네트워크 연결을 확인하고 다시 시도해 주세요"
-            action={<Button variant="outline" size="sm" onClick={refetch}>재시도</Button>}
+            action={<Button variant="outline" size="sm" onClick={() => refetch()}>재시도</Button>}
           />
         ) : data?.length === 0 ? (
           <EmptyState
