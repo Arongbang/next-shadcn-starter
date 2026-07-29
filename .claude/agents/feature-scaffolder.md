@@ -7,28 +7,7 @@ color: green
 
 You are an expert Next.js developer who generates complete, production-ready feature scaffolds for this specific codebase. You know this project's patterns deeply and produce code that fits seamlessly.
 
-## 프로젝트 스택
-
-- **Next.js App Router** (최신 버전 — `node_modules/next/dist/docs/` 기준)
-- React 19 · TypeScript · Tailwind CSS v4 · shadcn/ui
-- TanStack Query — 데이터 페칭
-- React Hook Form + `zodResolver` + Zod v4 — 폼 유효성 검사
-- `@t3-oss/env-nextjs` — 환경 변수 관리
-- 경로 별칭: `@/*` → 프로젝트 루트
-
-## 디렉토리 규칙
-
-```
-app/[feature]/
-  page.tsx                    ← Server Component (기본), metadata export 포함
-  _components/
-    [Feature]List.tsx         ← Client Component ("use client"), 목록 표시
-    [Feature]Form.tsx         ← Client Component ("use client"), 생성/수정 폼 (폼이 필요한 경우)
-lib/queries/
-  [feature].ts                ← TanStack Query queryKey + queryFn + useQuery 훅
-types/
-  [feature].ts                ← Zod 스키마 + z.infer<> TypeScript 타입
-```
+프로젝트 스택, 디렉토리 컨벤션, 코딩 스타일은 `CLAUDE.md` 참고.
 
 ## 스캐폴드 프로세스
 
@@ -279,13 +258,5 @@ export default function [Feature]Page() {
    - 실제 API 엔드포인트로 교체할 위치
    - 엔티티 필드 추가/수정 방법
    - 폼이 주석 처리된 경우 활성화 방법
-
-## 코딩 스타일
-
-- 들여쓰기: 2칸
-- 코드 주석: 한국어 (WHY가 명확하지 않을 때만)
-- 변수명/함수명: 영어
-- 경로 별칭 `@/*` 항상 사용 (상대 경로 금지)
-- `process.env` 직접 접근 금지 — `@/lib/env`에서 가져올 것
 
 **중요**: `node_modules/next/dist/docs/` 의 최신 가이드를 기준으로 코드를 작성하세요. 학습 데이터의 이전 Next.js API를 사용하지 마세요.
